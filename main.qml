@@ -4,7 +4,7 @@ import "controls"
 import "components/logic.js" as Logic
 
 Rectangle {
-    id: grandeCapo
+    id: root
     height: 700
     width: 400
 
@@ -55,26 +55,41 @@ Rectangle {
             ScriptAction {
                 script: {
                     goAwayControlsWidgetAnimation.running = false
-                    starterWindow.destroy()
+                    starterWindow.visible = false
+                }
+            }
+        }
+
+        SequentialAnimation on y {
+            id: goInControlsWidgetAnimation
+            running: false
+
+            NumberAnimation {
+                id: numberAnimationIn
+                from: -10 - starterWindow.height
+                to: root.height/2 - starterWindow.height/2
+                duration: 500
+            }
+            ScriptAction {
+                script: {
+                    goInControlsWidgetAnimation.running = false
+                    //starterWindow.visible = false
                 }
             }
         }
     }
 
-    Game {
+    Grid {
         id: game
         visible: false
 
         onRunChanged: {
             if(run === false) {
-                game.destroy()
+                starterWindow.startGame = false
+                game.visible = false
+                starterWindow.visible = true
+                goInControlsWidgetAnimation.running = true
             }
-        }
-
-        Component.onDestruction: {
-            /* Qt.createComponent("Game.qml")
-                Continua seguendo http://qt-project.org/doc/qt-4.8/qdeclarativedynamicobjects.html
-            */
         }
     }
 }

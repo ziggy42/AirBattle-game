@@ -16,7 +16,7 @@ Item {
     property int lives: 3       // vite rimaste - numero di volte in cui sei stato colpito
 
     property alias upInterval: updater.interval
-    property alias upRunning: updater.running
+    property alias run: updater.running
 
     //property alias explosionSound: explosion.muted UNSUPPORTED
     //property alias cannonSound: cannon.missileSound UNSUPPORTED
@@ -24,6 +24,12 @@ Item {
 
     width: parent.width
     height: parent.height
+
+    onRunChanged: {
+        if(run) {
+            Logic.newGame(grid);
+        }
+    }
 
     onScoreChanged: {
         //if(score%20 === 0) Logic.levelUp()
@@ -34,6 +40,37 @@ Item {
         lives = 3
         score = 0
     }
+
+    Item {
+        width: parent.width - 40
+        y: parent.height * 0.6
+        anchors {horizontalCenter: parent.horizontalCenter;}
+
+        Image {
+            width: parent.width/7; height: parent.width/7
+            source: "../images/ball.png"
+            anchors { left: parent.left }
+
+            Text {
+                anchors {centerIn: parent}
+                font.pixelSize:  parent.width * 0.75
+                text: grid.lives
+            }
+        }
+        Image {
+            width: parent.width/7; height: parent.width/7
+            clip: true
+            source: "../images/ball.png"
+            anchors { right: parent.right }
+
+            Text {
+                anchors {centerIn: parent}
+                font.pixelSize:  parent.width * 0.75
+                text: grid.score
+            }
+        }
+    }
+
 
     Timer {
         id: updater

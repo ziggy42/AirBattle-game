@@ -14,6 +14,7 @@ Item {
 
             onClicked: {
                 startGame = true
+                console.log("Start game button clicked")
             }
         }
 

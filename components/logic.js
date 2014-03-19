@@ -90,13 +90,6 @@ function newGame(grid) { // inizializza un nuovo gioco
 
 function injuried(){ gameState.lives --; }
 
-function pR() {
-    for(var i = 0; i < matrix.length; i++)
-        matrix[i].pauseOrResume()
-
-    gameState.upRunning = !gameState.upRunning
-}
-
 function audio() {
     gameState.cannonSound = !gameState.cannonSound
     gameState.explosionSound = !gameState.explosionSound
@@ -121,7 +114,7 @@ function startGame() {
 }
 
 function gameOver() {
-    gameState.upRunning = false
+    gameState.run = false
     for(var i = 0; i < matrix.length; i++) {
         matrix[i].empty();
     }
