@@ -83,6 +83,8 @@ Rectangle {
         id: game
         visible: false
 
+        anchors.fill: parent
+
         onRunChanged: {
             if(run === false) {
                 starterWindow.startGame = false

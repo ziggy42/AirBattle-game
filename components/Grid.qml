@@ -1,30 +1,20 @@
 import QtQuick 2.1
-import QtMultimedia 5.0
 import "logic.js" as Logic
 
 Item {
     id: root
 
-    property int squareSize: parent.width/8 // lato dei quadrati dentro la griglia
-    property int cols: 8      // numero di colonne della griglia
-    property Item grid: root    // si riferisce all'oggetto stesso
-
-    // PROPRIETÀ DEL GIUOCO - PARTE UP
-    property int score: 0       // punteggio corrente
+    property int squareSize: parent.width/8
+    property int cols: 8
+    property Item grid: root
+    property int score: 0
     property alias upInterval: updater.interval
     property alias run: updater.running
 
-    //property alias explosionSound: explosion.muted UNSUPPORTED
-    //property alias cannonSound: cannon.missileSound UNSUPPORTED
     property int xvalue : cannon.x
 
-    width: parent.width
-    height: parent.height
-
     onRunChanged: {
-        if(run) {
-            Logic.newGame(grid);
-        }
+        if(run) Logic.newGame(grid);
     }
 
     function restore() {
@@ -34,12 +24,10 @@ Item {
     Text {
         id: scoreText
         anchors {centerIn: parent}
-        font.pixelSize: 150
+        font.pixelSize: parent.height/6
         color: "white"
         text: grid.score
-
     }
-
 
     Timer {
         id: updater
@@ -47,11 +35,6 @@ Item {
         running: false
         repeat: true
         onTriggered: Logic.up();
-    }
-
-    SoundEffect {
-        id: explosion
-        source: "../sounds/Grenade.wav"
     }
 
     Cannon {
@@ -74,7 +57,6 @@ Item {
             SequentialAnimation on y {
                 running: true
                 property double speed : 0.51
-                property double bersaglio
 
                 onStarted: {
                     numberAnimation.duration = (Logic.setTarget(bullet.x)/speed)
@@ -88,10 +70,7 @@ Item {
                 }
                 ScriptAction {
                     script: {
-                        if(numberAnimation.to !== 0) {
-                            Logic.kill(bullet.x)
-                        }
-
+                        if(numberAnimation.to !== 0) Logic.kill(bullet.x)
                         repeaterModel.remove(0)
                     }
                 }

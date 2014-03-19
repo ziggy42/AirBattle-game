@@ -12,10 +12,7 @@ Item {
             width: parent.width
             text: "Start Game"
 
-            onClicked: {
-                startGame = true
-                console.log("Start game button clicked")
-            }
+            onClicked: startGame = true
         }
 
         Button {
