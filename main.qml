@@ -63,8 +63,19 @@ Rectangle {
 
     Game {
         id: game
-        anchors.fill: parent
         visible: false
+
+        onRunChanged: {
+            if(run === false) {
+                game.destroy()
+            }
+        }
+
+        Component.onDestruction: {
+            /* Qt.createComponent("Game.qml")
+                Continua seguendo http://qt-project.org/doc/qt-4.8/qdeclarativedynamicobjects.html
+            */
+        }
     }
 }
 

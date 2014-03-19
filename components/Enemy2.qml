@@ -58,8 +58,7 @@ Item {
         ScriptAction {
             script: {
                 animation.running = false
-                Logic.kill2(root.x)
-                //Logic.injuried()
+                Logic.gameOver()
             }
         }
     }

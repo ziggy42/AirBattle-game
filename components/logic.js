@@ -79,12 +79,6 @@ function kill(x) {
     matrix[colIndex].removeEnemy()
 }
 
-function kill2(x) {
-    var colIndex = getCol(x)
-
-    matrix[colIndex].removeEnemy()
-}
-
 function newGame(grid) { // inizializza un nuovo gioco
     gameState = grid
     gameState.restore()
@@ -127,8 +121,9 @@ function startGame() {
 }
 
 function gameOver() {
+    gameState.upRunning = false
     for(var i = 0; i < matrix.length; i++) {
-        // UCCIDI IL GAME QUI
+        matrix[i].empty();
     }
 }
 

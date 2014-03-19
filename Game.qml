@@ -3,6 +3,8 @@ import "components"
 import "components/logic.js" as Logic
 
 Item {
+    anchors.fill: parent
+
     property alias run: grid.upRunning
     property bool gameIsStarted: false
 
