@@ -5,16 +5,12 @@ import "logic.js" as Logic
 Item {
     id: root
 
-    // PROPRIETÀ DELLA GRIGLIA STESSA
-
     property int squareSize: parent.width/8 // lato dei quadrati dentro la griglia
     property int cols: 8      // numero di colonne della griglia
     property Item grid: root    // si riferisce all'oggetto stesso
 
     // PROPRIETÀ DEL GIUOCO - PARTE UP
     property int score: 0       // punteggio corrente
-    property int lives: 3       // vite rimaste - numero di volte in cui sei stato colpito
-
     property alias upInterval: updater.interval
     property alias run: updater.running
 
@@ -31,44 +27,17 @@ Item {
         }
     }
 
-    onScoreChanged: {
-        //if(score%20 === 0) Logic.levelUp()
-        //explosion.play() meglio di no
-    }
-
     function restore() {
-        lives = 3
         score = 0
     }
 
-    Item {
-        width: parent.width - 40
-        y: parent.height * 0.6
-        anchors {horizontalCenter: parent.horizontalCenter;}
+    Text {
+        id: scoreText
+        anchors {centerIn: parent}
+        font.pixelSize: 150
+        color: "white"
+        text: grid.score
 
-        Image {
-            width: parent.width/7; height: parent.width/7
-            source: "../images/ball.png"
-            anchors { left: parent.left }
-
-            Text {
-                anchors {centerIn: parent}
-                font.pixelSize:  parent.width * 0.75
-                text: grid.lives
-            }
-        }
-        Image {
-            width: parent.width/7; height: parent.width/7
-            clip: true
-            source: "../images/ball.png"
-            anchors { right: parent.right }
-
-            Text {
-                anchors {centerIn: parent}
-                font.pixelSize:  parent.width * 0.75
-                text: grid.score
-            }
-        }
     }
 
 
