@@ -4,6 +4,10 @@ AirBattle-game
 This is a simple, multi-platform game written completely in QML/Javascript.
 I've tested it on Android (4.1.2 and 4.4.2) and Ubuntu (12.04).
 
+![](http://s30.postimg.org/a32t6vri9/qmlscene_007.png)
+![](http://s30.postimg.org/4hge2tqtd/Screenshot_2014_03_20_15_03_03.png)
+
+
 Usage
 --------------
 To try this code on the desktop, simply download and extract the archive and:
