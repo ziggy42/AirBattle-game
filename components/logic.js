@@ -32,21 +32,12 @@ function Column(index) {
     }
 }
 
-var column0 = new Column(0)
-var column1 = new Column(1)
-var column2 = new Column(2)
-var column3 = new Column(3)
-var column4 = new Column(4)
-var column5 = new Column(5)
-var column6 = new Column(6)
-var column7 = new Column(7)
-
-
-var matrix = [column0, column1, column2, column3, column4, column5, column6, column7 ]
+var matrix
 var gameState
 var space = 0
 var lastIndex
-var enemySpeed = 25000
+var enemySpeed = 10000//25000
+var count = 0// Conta quanta gente ho creato finora
 
 function getCol(x) { return Math.floor(x / gameState.squareSize);}
 function getX(col) { return gameState.squareSize*(col+1) - gameState.squareSize;}
@@ -60,17 +51,18 @@ function up() {
     } else {console.log("La colonna " + colIndex + " è occupata")}
 
     lastIndex = colIndex
+    count++
+    if(count%7 == 0) enemySpeed = enemySpeed*0.9
+    if(count%7 == 0) gameState.upInterval = gameState.upInterval*0.9
 }
 
 function setTarget(x) {
     var colIndex = getCol(x)
 
-    if(!matrix[colIndex].isEmpty()) {
+    if(!matrix[colIndex].isEmpty())
         return matrix[colIndex].getY()
-    }
-    else {
+    else
         return space
-    }
 }
 
 function kill(x) {
@@ -85,6 +77,7 @@ function newGame(grid) {
 }
 
 function startGame() {
+    enemySpeed = 10000
     gameState.restore()
     matrix = [new Column(0), new Column(1), new Column(2), new Column(3), new Column(4), new Column(5), new Column(6), new Column(7) ]
 }
@@ -94,8 +87,4 @@ function gameOver() {
     for(var i = 0; i < matrix.length; i++) {
         matrix[i].empty();
     }
-}
-
-function levelUp() {
-    gameState.upInterval = gameState.upInterval*0.9
 }

@@ -53,7 +53,7 @@ Item {
         NumberAnimation {
             id: numAnimation
             to: parent.height - 3*image.height
-            duration: Logic.enemySpeed//25000
+            duration: Logic.enemySpeed
         }
         ScriptAction {
             script: {
@@ -84,7 +84,6 @@ Item {
              sizeVariation: 24
              velocity: PointDirection{ y: -200; yVariation: x*0.5; xVariation: 30 }
              endSize: 1
-
          }
      }
 }
