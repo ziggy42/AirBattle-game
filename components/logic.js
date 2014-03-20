@@ -38,7 +38,6 @@ var column2 = new Column(2)
 var column3 = new Column(3)
 var column4 = new Column(4)
 var column5 = new Column(5)
-
 var column6 = new Column(6)
 var column7 = new Column(7)
 
@@ -79,38 +78,15 @@ function kill(x) {
     matrix[colIndex].removeEnemy()
 }
 
-function newGame(grid) { // inizializza un nuovo gioco
+function newGame(grid) {
     gameState = grid
-    gameState.restore()
-
     startGame()
-
     return gameState
-}
-
-function injuried(){ gameState.lives --; }
-
-function audio() {
-    gameState.cannonSound = !gameState.cannonSound
-    gameState.explosionSound = !gameState.explosionSound
 }
 
 function startGame() {
     gameState.restore()
-
-    for(var i = 0; i < matrix.length; i++){
-        matrix[i].empty()
-    }
-
-    column0 = new Column(0)
-    column1 = new Column(1)
-    column2 = new Column(2)
-    column3 = new Column(3)
-    column4 = new Column(4)
-    column5 = new Column(5)
-    column6 = new Column(6)
-    column7 = new Column(7)
-    matrix = [column0, column1, column2, column3, column4, column5, column6, column7 ]
+    matrix = [new Column(0), new Column(1), new Column(2), new Column(3), new Column(4), new Column(5), new Column(6), new Column(7) ]
 }
 
 function gameOver() {
@@ -120,10 +96,6 @@ function gameOver() {
     }
 }
 
-/*
-
 function levelUp() {
     gameState.upInterval = gameState.upInterval*0.9
-    enemySpeed -= 5000
 }
-  */
