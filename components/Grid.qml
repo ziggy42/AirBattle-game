@@ -10,12 +10,9 @@ Item {
     property int score: 0
     property alias upInterval: updater.interval
     property alias run: updater.running
-
     property int xvalue : cannon.x
 
-    onRunChanged: {
-        if(run) Logic.newGame(grid);
-    }
+    onRunChanged: if(run) Logic.newGame(grid)
 
     function restore() {
         score = 0
@@ -40,7 +37,8 @@ Item {
     Cannon {
         id: cannon
         cannonImage: "../images/f-16.png"
-        cannonWidth: parent.width/4; cannonHeight: parent.height/6
+        cannonWidth: parent.width/4
+        cannonHeight: parent.height/6
         anchors { bottomMargin: 5; bottom: parent.bottom; }
     }
 
@@ -58,9 +56,7 @@ Item {
                 running: true
                 property double speed : 0.51
 
-                onStarted: {
-                    numberAnimation.duration = (Logic.setTarget(bullet.x)/speed)
-                }
+                onStarted: numberAnimation.duration = (Logic.setTarget(bullet.x)/speed)
 
                 NumberAnimation {
                     id: numberAnimation

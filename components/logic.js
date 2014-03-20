@@ -51,6 +51,7 @@ function up() {
     } else {console.log("La colonna " + colIndex + " è occupata")}
 
     lastIndex = colIndex
+
     count++
     if(count%7 == 0) enemySpeed = enemySpeed*0.9
     if(count%7 == 0) gameState.upInterval = gameState.upInterval*0.9
@@ -78,6 +79,7 @@ function newGame(grid) {
 
 function startGame() {
     enemySpeed = 10000
+    gameState.upInterval = 2000
     gameState.restore()
     matrix = [new Column(0), new Column(1), new Column(2), new Column(3), new Column(4), new Column(5), new Column(6), new Column(7) ]
 }

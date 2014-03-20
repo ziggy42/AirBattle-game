@@ -1,27 +1,19 @@
 import QtQuick 2.1
 
-Item {
+Image {
     id: root
+    focus: true
 
     property alias cannonWidth: root.width
     property alias cannonHeight: root.height
-    property alias cannonImage: cannonImage.source
-
-    Image {
-        id: cannonImage
-        smooth: true
-        anchors {fill: parent }
-        focus: true
-    }
+    property alias cannonImage: root.source
 
     MouseArea {
         anchors {fill: parent}
         drag.target: root
         drag.axis: Drag.XAxis
 
-       onClicked: {
-           repeaterModel.append({"xvar": xvalue + cannon.width/2 - cannon.width/22})
-        }
+        onClicked: repeaterModel.append({"xvar": xvalue + cannon.width/2 - cannon.width/22})
     }
 }
 

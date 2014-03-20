@@ -31,12 +31,10 @@ Rectangle {
         height: childrenRect.height
         y: parent.height/2 - height/2
 
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-        }
+        anchors.horizontalCenter: parent.horizontalCenter
 
         onStartGameChanged: {
-            if(startGame === true) {
+            if(startGame) {
                 game.run = true
                 game.visible = true
                 goAwayControlsWidgetAnimation.running = true
@@ -73,7 +71,6 @@ Rectangle {
             ScriptAction {
                 script: {
                     goInControlsWidgetAnimation.running = false
-                    //starterWindow.visible = false
                 }
             }
         }
@@ -86,7 +83,7 @@ Rectangle {
         anchors.fill: parent
 
         onRunChanged: {
-            if(run === false) {
+            if(!run) {
                 starterWindow.startGame = false
                 game.visible = false
                 starterWindow.visible = true
