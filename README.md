@@ -7,7 +7,7 @@ I've tested it on Android (4.1.2 and 4.4.2) and Ubuntu (12.04).
 Screenshots
 --------------
 
-![](http://s27.postimg.org/ot2hi3n0h/g3233.png)
+![screenshot](http://postimg.org/image/uu06f69mn/)
 
 
 Usage
