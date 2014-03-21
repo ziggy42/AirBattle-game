@@ -9,7 +9,7 @@ Screenshots
 
 ![](http://s11.postimg.org/4fo1f7c6b/Screenshot_2014_03_21_19_12_26_Gf_Knexus420140321.png)
 
-![](http://s11.postimg.org/y6b60yx5v/qmlscene_007.png)
+![](http://s27.postimg.org/ekvlmv32a/Selezione_008.jpg)
 
 
 Usage
