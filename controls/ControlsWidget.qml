@@ -18,7 +18,10 @@ Item {
         Button {
             text: "Rate this game"
             width: parent.width
-            onClicked: Qt.openUrlExternally("http://www.lol.com")
+            onClicked: {
+                // ANDROID
+                Qt.openUrlExternally("market://details?id=com.andreapivetta.airbattle")
+            }
         }
 
         Button {

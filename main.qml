@@ -35,9 +35,9 @@ Rectangle {
 
         onStartGameChanged: {
             if(startGame) {
+                goAwayControlsWidgetAnimation.running = true
                 game.run = true
                 game.visible = true
-                goAwayControlsWidgetAnimation.running = true
             }
         }
 
@@ -52,7 +52,6 @@ Rectangle {
             }
             ScriptAction {
                 script: {
-                    goAwayControlsWidgetAnimation.running = false
                     starterWindow.visible = false
                 }
             }

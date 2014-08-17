@@ -18,7 +18,7 @@ Item {
             dead = true
             image.source = "../images/explosion1.png"
             animation.running = false
-            root.x = root.x + (image.width - image.width*1.1)
+            root.x = root.x + image.width*0.1
             parallel.running = true
             emitter.emitRate = 0
             destroy(1000)
@@ -36,7 +36,7 @@ Item {
         id: image
         width: parent.width; height: parent.height
         anchors.fill: parent
-        smooth:true
+        asynchronous: true
         source: "../images/enemy2.png"
 
         ParallelAnimation {
@@ -78,8 +78,8 @@ Item {
          Emitter {
              id: emitter
              anchors.centerIn: parent
-             emitRate: 500//1000
-             lifeSpan: 1000//3500
+             emitRate: 500
+             lifeSpan: 1000
              size: 2
              sizeVariation: 24
              velocity: PointDirection{ y: -200; yVariation: x*0.5; xVariation: 30 }

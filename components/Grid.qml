@@ -12,6 +12,26 @@ Item {
     property alias run: updater.running
     property int xvalue : cannon.x
 
+    Keys.onPressed: {
+        if (event.key === Qt.Key_Left) {
+            console.log("Left");
+
+            if(cannon.x > 0 + 20 - cannon.width/2)
+                cannon.x -=  20
+        }
+        if (event.key === Qt.Key_Right) {
+            console.log("Right");
+
+            if(cannon.x < root.width - cannon.width/2 -20)
+                cannon.x += 20
+        }
+        if (event.key === Qt.Key_Space) {
+            console.log("Space");
+
+            repeaterModel.append({"xvar": xvalue + cannon.width/2 - cannon.width/22})
+        }
+    }
+
     onRunChanged: if(run) Logic.newGame(grid)
 
     function restore() {
