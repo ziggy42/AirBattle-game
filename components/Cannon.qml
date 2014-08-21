@@ -4,9 +4,6 @@ Image {
     id: root
     focus: true
 
-    property alias cannonWidth: root.width
-    property alias cannonHeight: root.height
-    property alias cannonImage: root.source
     property alias mAreaDrag: mArea.drag
 
     MouseArea {

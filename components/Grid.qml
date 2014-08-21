@@ -13,23 +13,14 @@ Item {
     property int xvalue : cannon.x
 
     Keys.onPressed: {
-        if (event.key === Qt.Key_Left) {
-            console.log("Left");
+        if ((event.key === Qt.Key_Left) && (cannon.x >= 0 - cannon.width/3))
+            cannon.x -=  20
 
-            if(cannon.x >= 0 - cannon.width/3)
-                cannon.x -=  20
-        }
-        if (event.key === Qt.Key_Right) {
-            console.log("Right");
+        if ((event.key === Qt.Key_Right) && (cannon.x < root.width - cannon.width*2/3))
+            cannon.x += 20
 
-            if(cannon.x < root.width - cannon.width*2/3)
-                cannon.x += 20
-        }
-        if (event.key === Qt.Key_Space) {
-            console.log("Space");
-
+        if (event.key === Qt.Key_Space)
             repeaterModel.append({"xvar": xvalue + cannon.width/2 - cannon.width/22})
-        }
     }
 
     onRunChanged: if(run) Logic.newGame(grid)
@@ -56,9 +47,9 @@ Item {
 
     Cannon {
         id: cannon
-        cannonImage: "../images/f-16.png"
-        cannonWidth: parent.width/4
-        cannonHeight: parent.height/6
+        source: "../images/f-16.png"
+        width: parent.width/4
+        height: parent.height/6
         anchors { bottomMargin: 5; bottom: parent.bottom; }
         mAreaDrag {minimumX: 0 - width/3; maximumX: root.width - width*2/3 }
     }
