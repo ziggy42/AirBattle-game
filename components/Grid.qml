@@ -16,13 +16,13 @@ Item {
         if (event.key === Qt.Key_Left) {
             console.log("Left");
 
-            if(cannon.x > 0 + 20 - cannon.width/2)
+            if(cannon.x >= 0 - cannon.width/3)
                 cannon.x -=  20
         }
         if (event.key === Qt.Key_Right) {
             console.log("Right");
 
-            if(cannon.x < root.width - cannon.width/2 -20)
+            if(cannon.x < root.width - cannon.width*2/3)
                 cannon.x += 20
         }
         if (event.key === Qt.Key_Space) {
@@ -60,6 +60,7 @@ Item {
         cannonWidth: parent.width/4
         cannonHeight: parent.height/6
         anchors { bottomMargin: 5; bottom: parent.bottom; }
+        mAreaDrag {minimumX: 0 - width/3; maximumX: root.width - width*2/3 }
     }
 
     Repeater {
