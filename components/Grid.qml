@@ -4,8 +4,8 @@ import "logic.js" as Logic
 Item {
     id: root
 
-    property int squareSize: parent.width/8
     property int cols: 8
+    property int squareSize: parent.width/cols
     property Item grid: root
     property int score: 0
     property alias upInterval: updater.interval
