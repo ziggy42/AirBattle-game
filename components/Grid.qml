@@ -25,10 +25,6 @@ Item {
 
     onRunChanged: if(run) Logic.newGame(grid)
 
-    function restore() {
-        score = 0
-    }
-
     Text {
         id: scoreText
         anchors {centerIn: parent}

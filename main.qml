@@ -78,7 +78,6 @@ Rectangle {
     Grid {
         id: game
         visible: false
-
         anchors.fill: parent
 
         onRunChanged: {
