@@ -53,8 +53,10 @@ function up() {
     lastIndex = colIndex
 
     count++
-    if(count%7 == 0) enemySpeed = enemySpeed*0.9
-    if(count%7 == 0) gameState.upInterval = gameState.upInterval*0.9
+    if(count%7 == 0) {
+        enemySpeed = enemySpeed*0.9
+        gameState.upInterval = gameState.upInterval*0.9
+    }
 }
 
 function setTarget(x) {

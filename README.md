@@ -2,7 +2,7 @@ AirBattle-game
 ==============
 
 This is a simple, multi-platform game written completely in QML/Javascript.
-I've tested it on Android (4.1.2 and 4.4.2) and Ubuntu (12.04 and 14.04).
+I've tested it on Android (4.1.2 and 4.4.2), Ubuntu (12.04 and 14.04) and Windows 8.1).
 
 Screenshots
 --------------
@@ -23,6 +23,9 @@ You may also want to add a custom Androidmanifest.xml and to set:
     android:screenOrientation="portrait" 
 
 to disable landscape mode on your phone.
+If you want to play the game in fullscreen mode, you should also add:
 
-This code should also work on OSX, Windows, iOS, and windows phone  but I've not tried yet.
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+
+This code should also work on OSX, iOS, and Windows Phone  but I've not tried yet.
     
