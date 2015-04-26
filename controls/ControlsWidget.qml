@@ -19,8 +19,13 @@ Item {
             text: "Rate this game"
             width: parent.width
             onClicked: {
-                // ANDROID
-                Qt.openUrlExternally("market://details?id=com.andreapivetta.airbattle")
+                switch(Qt.platform.os) {
+                    case 'android':
+                        Qt.openUrlExternally("market://details?id=com.andreapivetta.airbattle")
+                        break
+                    default:
+                        console.log("Platform not supported")
+                }
             }
         }
 

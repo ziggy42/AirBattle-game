@@ -12,7 +12,6 @@ function Column(index) {
                 this.container.shift()
         }
         catch(err){
-            // se non c'è nessuno da uccidere mi parte l'eccezione
             console.log("Exeption detected")
         }
     }
